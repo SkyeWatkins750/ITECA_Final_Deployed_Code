@@ -3,56 +3,6 @@ require_once '../config.php';
 if (session_status() === PHP_SESSION_NONE) {
     session_start();
 }
-
-// function getItemCardDetailsForUser($offset, $limit){
-//     try{
-//         if (!isset($_SESSION["user_id"])){
-//             http_response_code(401);
-//             exit("User not logged in.");
-//         }
-
-//         require "dbh.inc.php";
-
-//         $query = "SELECT i.id, i.imagePath, i.itemName, i.price FROM item i WHERE sellerId = :sellerID ORDER BY i.dateListed DESC LIMIT :_limit OFFSET :_offset;";
-
-//         $stmt = $pdo->prepare($query);
-
-//         $limitVal = (int)$limit;
-//         $offsetVal = (int)$offset;
-
-//         $stmt->bindParam(":sellerID", $_SESSION["user_id"]);
-//         $stmt->bindParam(":_limit", $limitVal, PDO::PARAM_INT);
-//         $stmt->bindParam(":_offset", $offsetVal, PDO::PARAM_INT);
-
-//         $stmt->execute();
-
-//         $results = $stmt->fetchAll(PDO::FETCH_ASSOC);
-
-//         $pdo = null;
-//         $stmt = null;
-
-//         $output = "";
-
-//         foreach ($results as $item) {
-//             $output .= "<a href='../MainPage/UpdateListingPage.php?id={$item['id']}' class='item-link'>
-//                 <div class='item-card'>
-//                     <img src='../images/thumbnails/{$item['imagePath']}' class='item-image'>
-//                     <div class='item-details'>
-//                         <h3 class='item-name'>" . htmlspecialchars($item['itemName']) . "</h3>
-//                         <p class='item-price'>R" . number_format($item['price'], 2) . "</p>
-//                     </div>
-//                 </div>
-//             </a>";
-//         }
-
-//         echo $output;
-
-//     }catch (PDOException $e) {
-//         http_response_code(500);
-//         die("Query failed: " . $e->getMessage());
-//     }
-// }
-
 function getItemCardDetailsForUser($offset, $limit, $search = '') {
     try {
         if (!isset($_SESSION["user_id"])) {
@@ -88,15 +38,6 @@ function getItemCardDetailsForUser($offset, $limit, $search = '') {
 
         $output = "";
         foreach ($results as $item) {
-            // $output .= "<a href='../MainPage/UpdateListingPage.php?id={$item['id']}' class='item-link'>
-            //     <div class='item-card'>
-            //         <img src='../images/thumbnails/{$item['imagePath']}' class='item-image'>
-            //         <div class='item-details'>
-            //             <h3 class='item-name'>" . htmlspecialchars($item['itemName']) . "</h3>
-            //             <p class='item-price'>R" . number_format($item['price'], 2) . "</p>
-            //         </div>
-            //     </div>
-            // </a>";
             $output .= "<form action='../MainPage/UpdateListingPage.php' method='POST' class='item-link' style='all: unset; cursor: pointer;'>
                 <input type='hidden' name='itemId' value='{$item['id']}'>
                 <button type='submit' style='all: unset; width: 100%; text-align: left;'>

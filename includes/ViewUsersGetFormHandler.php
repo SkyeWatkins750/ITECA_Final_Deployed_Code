@@ -17,16 +17,6 @@ try {
 
     require_once "dbh.inc.php";
 
-    // $query = "SELECT * FROM users ORDER BY id ASC LIMIT :_limit OFFSET :_offset";
-
-    // $stmt = $pdo->prepare($query);
-    // $stmt->bindParam(":_limit", $limit, PDO::PARAM_INT);
-    // $stmt->bindParam(":_offset", $offset, PDO::PARAM_INT);
-
-    // $stmt->execute();
-
-    // $results = $stmt->fetchAll(PDO::FETCH_ASSOC, );
-
     $sql = "SELECT * FROM users";
     $params = [];
 
@@ -43,7 +33,6 @@ try {
 
     $stmt = $pdo->prepare($sql);
 
-    // Manually bind all params to handle type casting
     $bindIndex = 1;
     foreach ($params as $param) {
         $type = is_int($param) ? PDO::PARAM_INT : PDO::PARAM_STR;

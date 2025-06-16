@@ -4,31 +4,7 @@ if (session_status() === PHP_SESSION_NONE) {
     session_start();
 }
 
-// if (isset($_GET['id'])) {
-//     $itemId = $_GET['id'];
-//     try {
-//         $item = getItemDetails($itemId);
-//     } catch (PDOException $e) {
-//         die("Query failed: " . $e->getMessage());
-//     }
-// }else{
-//     die("No item ID provided");
-// }
-
-// if ($_SERVER["REQUEST_METHOD"] === "POST" && isset($_POST['id'])) {
-//     $itemId = $_POST['id'];
-//     try {
-//         $item = getItemDetails($itemId);
-//     } catch (PDOException $e) {
-//         die("Query failed: " . $e->getMessage());
-//     }
-// } else {
-//     header("Location: ../MainPage/MainPage.php");
-//     die("No item ID provided");
-// }
-
 if ($_SERVER["REQUEST_METHOD"] === "POST" && isset($_POST['id'])) {
-    // Received POST, redirect to GET to avoid resubmission popup
     $itemId = $_POST['id'];
     header("Location: ../MainPage/DetailPage.php?id=" . urlencode($itemId));
     exit();
@@ -43,7 +19,6 @@ if ($_SERVER["REQUEST_METHOD"] === "POST" && isset($_POST['id'])) {
         die("Query failed: " . $e->getMessage());
     }
 } else {
-    // No ID provided, redirect away or show error
     header("Location: ../MainPage/MainPage.php");
     die("No item ID provided");
 }

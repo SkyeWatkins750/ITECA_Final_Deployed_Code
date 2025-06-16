@@ -7,7 +7,6 @@ if (session_status() === PHP_SESSION_NONE) {
 function getCartItemDetails() {
     try{
         $userId = $_SESSION['user_id'];
-        // $userId = 2;
         require "dbh.inc.php";
 
         $query = "SELECT i.id, i.itemName, i.imagePath, i.price, ca.categoryName, co.conditionName FROM item i INNER JOIN cart_items ci ON ci.itemId = i.id  AND ci.userId = :userID INNER JOIN category ca ON i.categoryId = ca.id INNER JOIN _condition co ON i.conditionId = co.id ORDER BY ci.addedAt DESC;";
@@ -59,7 +58,6 @@ function getCartItemDetails() {
 function getTotalPrice() {
     try{
         $userId = $_SESSION['user_id'];
-        // $userId = 2;
         require "dbh.inc.php";
 
         $query = "SELECT i.price FROM item i INNER JOIN cart_items ci ON ci.itemId = i.id  AND ci.userId = :userID;";

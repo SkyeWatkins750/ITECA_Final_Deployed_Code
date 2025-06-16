@@ -146,21 +146,6 @@ function getItemsForCards() {
         $results = $stmt->fetchAll(PDO::FETCH_ASSOC);
 
         foreach ($results as $item) {
-            // $htmlOutput .= "
-            //                 <form method='POST' action='../MainPage/DetailPage.php' class='item-form' >
-            //                     <input type='hidden' name='id' value='" . htmlspecialchars($item['id']) . "'>
-            //                     <button type='submit' class='item-link' style='all: unset; display: block; width: 100%;'>
-            //                         <div class='item-card'>
-            //                             <img src='../images/" . htmlspecialchars($item['imagePath']) . "' class='item-image'>
-            //                             <div class='item-details'>
-            //                                 <h3 class='item-name'>" . htmlspecialchars($item['itemName']) . "</h3>
-            //                                 <p class='item-price'>R" . number_format($item['price'], 2) . "</p>
-            //                             </div>
-            //                         </div>
-            //                     </button>
-            //                 </form>
-            //             ";
-
             $htmlOutput .= "
                             <a href='../MainPage/DetailPage.php?id=" . urlencode($item['id']) . "' class='item-link' style='all: unset; display: block; width: 100%;'>
                                 <div class='item-card'>

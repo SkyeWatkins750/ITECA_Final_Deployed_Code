@@ -14,9 +14,6 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     if (empty($result)) {
         $errors['emailError'] = "Email does not exist";
     }
-    // elseif ($result['userPassword'] != $password) {
-    //     $errors['passwordError'] = "Password is incorrect";
-    // }
     elseif (!password_verify($password, $result['userPassword'])) {
         $errors['passwordError'] = "Password is incorrect";
     }
@@ -27,13 +24,9 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         header("Location: ../Login/login.php");
         exit();
     }else{
-        // session_unset();
         $_SESSION["email"] = $email;
         header("Location: ../MainPage/MainPage.php");
     }
-
-    // $_SESSION["email"] = $email;
-    // header("Location: ../MainPage/MainPage.php");
 }else{
     header("Location: ../Login/login.php");
 }

@@ -35,7 +35,6 @@ try{
 function getTotalPriceAfterDelete() {
     try{
         $userId = $_SESSION['user_id'];
-        // $userId = 2;
         require "dbh.inc.php";
 
         $query = "SELECT i.price FROM item i INNER JOIN cart_items ci ON ci.itemId = i.id  AND ci.userId = :userID;";

@@ -42,7 +42,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $condition = $_POST["condition"];
     $description = $_POST["description"];
     $userId = $_SESSION['user_id'];
-    $itemId = $_POST["itemId"]; // Make sure this is posted for update
+    $itemId = $_POST["itemId"];
 
     $imageUploaded = isset($_FILES['image']) && $_FILES['image']['error'] === UPLOAD_ERR_OK;
 

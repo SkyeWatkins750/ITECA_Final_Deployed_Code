@@ -101,8 +101,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST"){
             echo "Failed to upload image.";
         }
     }else{
-        // echo "No image was not uploaded or there was an error with the image.";
-        // exit();
+        echo "No image was not uploaded or there was an error with the image.";
     }
 }else {
     header ("Location: Location: ../MainPage/CreateListingPage.php");

@@ -17,9 +17,6 @@ function getItemsForCards() {
 
                 $pdo = null;
                 $stmt = null;
-
-                // die();
-
             }catch (PDOException $e) {
                 die("Query failed: " . $e->getMessage());
             }
@@ -37,35 +34,12 @@ function getItemsForCards() {
 
                 $pdo = null;
                 $stmt = null;
-
-                // die();
-
             }catch (PDOException $e) {
                 die("Query failed: " . $e->getMessage());
             }
         }
 
         foreach ($results as $item) {
-            // $htmlOutput .= "<a href='../MainPage/DetailPage.php?id={$item['id']}' class='item-link'>
-            //         <div class='item-card'>
-            //             <img src='../images/{$item['imagePath']}' class='item-image'>
-            //             <div class='item-details'>
-            //                 <h3 class='item-name'>" . htmlspecialchars($item['itemName']) . "</h3>
-            //                 <p class='item-price'>R" . number_format($item['price'], 2) . "</p>
-            //             </div>
-            //         </div>
-            //       </a>";
-            // $htmlOutput .= "
-            //                 <form method='POST' action='../MainPage/DetailPage.php' class='item-form'>
-            //                     <input type='hidden' name='id' value='{$item['id']}'>
-            //                     <div class='item-card item-link' onclick='this.closest(\"form\").submit();'>
-            //                         <img src='../images/{$item['imagePath']}' class='item-image'>
-            //                         <div class='item-details'>
-            //                             <h3 class='item-name'>" . htmlspecialchars($item['itemName']) . "</h3>
-            //                             <p class='item-price'>R" . number_format($item['price'], 2) . "</p>
-            //                         </div>
-            //                     </div>
-            //                 </form>";
             $htmlOutput .= "
                             <form method='POST' action='../MainPage/DetailPage.php' class='item-form'>
                                 <input type='hidden' name='id' value='" . htmlspecialchars($item['id']) . "'>
