@@ -4,7 +4,7 @@ ini_set("session.use_strict_mode",1);
 
 session_set_cookie_params([
     'lifetime' => 0,
-    'domain' => 'myTrader.free.nf', // this is just localhost for new but change it to particular website
+    'domain' => 'myTrader.free.nf',
     'path' => '/',
     'secure' => true,
     'httponly' => true
