@@ -131,7 +131,6 @@ if (session_status() === PHP_SESSION_NONE) {
             });
         });
 
-        // Settings dropdown toggle logic
             document.querySelector(".buttonSettings").addEventListener("click", function (e) {
                 e.stopPropagation();
                 const dropdown = document.getElementById("settingsDropdown");

@@ -102,12 +102,10 @@ if (session_status() === PHP_SESSION_NONE) {
             </div>
         </div>
 
-        <!-- <script src="../JS/MainPageJS.js"></script> -->
         <script>
         const currentUserKey = "<?php echo hash('sha256', $_SESSION['user_id']); ?>";
             const lastUserKey = "lastUserHash";
 
-            // Clear old user data if user changed
             const lastUserId = localStorage.getItem(lastUserKey);
             if (lastUserId && lastUserId !== currentUserKey) {
                 localStorage.removeItem(`selectedCategories_user_${lastUserId}`);
@@ -161,10 +159,6 @@ if (session_status() === PHP_SESSION_NONE) {
                         if (response.trim() !== "") {
                             $("#item-list").append(response);
                             offset += limit;
-
-                            // Save updated HTML to localStorage as you load more items
-                            // localStorage.setItem("itemHTML", document.getElementById("item-list").innerHTML);
-                            // localStorage.setItem("itemOffset", offset);
                         }
 
                         loading = false;
@@ -188,7 +182,6 @@ if (session_status() === PHP_SESSION_NONE) {
                     }
                 });
 
-                // Store selected categories per user
                 localStorage.setItem(keyName, JSON.stringify(selectedCategories));
 
                 loadItems(true);
@@ -199,7 +192,6 @@ if (session_status() === PHP_SESSION_NONE) {
             }
 
             $(document).ready(function () {
-                // Restore selected categories
                 let storedCategories = localStorage.getItem(keyName);
                 if (storedCategories) {
                     let categories = JSON.parse(storedCategories);
@@ -208,39 +200,15 @@ if (session_status() === PHP_SESSION_NONE) {
                     });
                 }
 
-                // Try to restore HTML & scroll position
-                // let savedHTML = localStorage.getItem("itemHTML");
-                // let savedScroll = parseInt(localStorage.getItem("scrollPosition") || "0", 10);
-                // let savedOffset = parseInt(localStorage.getItem("itemOffset") || "0", 10);
-
-                // if (savedHTML) {
-                //     // $("#item-list").html(savedHTML);
-                //     setTimeout(() => {
-                //         $(window).scrollTop(savedScroll);
-                //     }, 0);
-                //     // Skip loading more items now, content restored from localStorage
-                //     offset = savedOffset || 0;
-                // } else {
-                //     // No saved HTML: load first page and scroll after
-                //     loadItems(false, () => {
-                //         if (!isNaN(savedScroll)) {
-                //             $(window).scrollTop(savedScroll);
-                //         }
-                //     });
-                // }
-
                 const savedState = history.state;
 
                 if (savedState) {
-                    // Restore search
                     $("#searchBar").val(savedState.search || "");
 
-                    // Restore category checkboxes
                     $('input[name="categories[]"]').each(function () {
                         this.checked = savedState.selectedCategories?.includes(this.value);
                     });
 
-                    // Load items up to previous offset
                     offset = 0;
                     const targetOffset = savedState.offset || 0;
                     function loadUntilOffset() {
@@ -252,36 +220,16 @@ if (session_status() === PHP_SESSION_NONE) {
                     }
                     loadUntilOffset();
                 } else {
-                    // First visit
                     loadItems();
                 }
 
 
-                // Infinite scroll to load more as user scrolls near bottom
                 $(window).on("scroll", function () {
                     if ($(window).scrollTop() + $(window).height() >= $(document).height() - 1000) {
                         loadItems();
                     }
-                    // Save scroll position live (optional)
-                    // localStorage.setItem("scrollPosition", window.scrollY);
                 });
             });
-
-            // Save scroll, offset, HTML and categories when user clicks an item
-            // $(document).on("click", ".item-link", function () {
-            //     localStorage.setItem("scrollPosition", window.scrollY);
-            //     localStorage.setItem("itemOffset", offset);
-            //     localStorage.setItem("itemHTML", document.getElementById("item-list").innerHTML);
-
-            //     // Also save current selected categories
-            //     let selectedCategories = [];
-            //     $('input[name="categories[]"]').each(function () {
-            //         if (this.checked) {
-            //             selectedCategories.push(this.value);
-            //         }
-            //     });
-            //     localStorage.setItem(keyName, JSON.stringify(selectedCategories));
-            // });
 
             $(document).on("click", ".item-link", function () {
                 const state = {
@@ -310,7 +258,6 @@ if (session_status() === PHP_SESSION_NONE) {
 
             updateCartCount();
 
-            // Settings dropdown toggle logic
             document.querySelector(".buttonSettings").addEventListener("click", function (e) {
                 e.stopPropagation();
                 const dropdown = document.getElementById("settingsDropdown");

@@ -145,7 +145,7 @@ if (session_status() === PHP_SESSION_NONE) {
                 reader.readAsDataURL(file);
             } else {
                 imagePreview.src = "../images/<?= htmlspecialchars($item['imagePath']) ?>";
-                imagePreviewContainer.style.display = 'block'; // or 'none' if you want to hide when no file
+                imagePreviewContainer.style.display = 'block';
             }
         });
 
