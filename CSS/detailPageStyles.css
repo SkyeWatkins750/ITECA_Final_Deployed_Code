@@ -1,0 +1,323 @@
+.page_header{
+    font-family: Segoe UI Historic, Segoe UI, Helvetica, Arial, sans-serif;
+    color: white;
+    background-color: #262422;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    border-bottom: 1px solid #484646;
+    height: 8%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    /* padding: 0 2%; */
+    padding-left: 1%;
+    padding-right: 2%;
+    z-index: 1000;
+}
+body{
+    margin-top: 4%;
+    font-family: 'Inter', sans-serif;
+    background-color: #f7f7f7;
+}
+#HeaderHeading{
+    margin-left: 0;
+}
+header{
+    display: flex;
+    align-items: center;
+    gap: 2vh;
+    width: 100%;
+    justify-content: space-between;
+}
+body{
+    background-color: #141313;
+}
+.settingsButton {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    /* margin-left: auto; */
+    margin-left: 1%;
+    padding-right: 3%; 
+}
+
+.buttonSettings {
+    background: none;
+    border: none;
+    padding: 0;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.settings-btn {
+    transition: transform 0.4s ease-in-out;
+}
+
+.settings-btn:hover {
+    transform: rotate(45deg);
+}
+.settings-btn:active {
+animation: rot 1s linear infinite;
+}
+@keyframes rot {
+from {
+    transform: rotate(-100deg);
+}
+to {
+    transform: rotate(180deg);
+}
+}
+
+.main-content {
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    flex-direction: column;
+    padding: 10px; 
+    background-color: #ffffff;
+    min-height: 92vh;
+    margin-top: 8vh;
+    width: 100%;
+    box-sizing: border-box;
+}
+
+.product-details-container {
+    display: flex;
+    width: 100%;
+    justify-content: space-between;
+    align-items: flex-start;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    padding: 10px; 
+    border-radius: 8px;
+    background-color: #ffffff;
+    margin-bottom: 40px;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.product-image {
+    flex: 3;
+    margin-right: 10px;
+    width: 100%;
+}
+
+.product-image img {
+    width: 100%;
+    height: auto;
+    border-radius: 8px;
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.product-info {
+    flex: 1.5;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    width: 100%;
+    padding-left: 30px;
+}
+
+.product-name {
+    font-size: 2.5rem;
+    margin-bottom: 20px;
+    color: #333;
+}
+
+.product-category,
+.product-condition,
+.product-price,
+.product-date {
+    font-size: 1.2rem;
+    margin: 10px 0;
+    color: #666;
+}
+
+.product-description {
+    font-size: 1.1rem;
+    line-height: 1.6;
+    margin-top: 20px;
+    color: #333;
+}
+
+.product-price {
+    font-size: 1.5rem;
+    font-weight: bold;
+    color: #007BFF;
+}
+
+.product-info p {
+    margin: 10px 0;
+}
+
+.contact-seller {
+    width: 100%;
+    background-color: #f0f0f0;
+    padding: 10px; 
+    border-radius: 8px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    margin-top: 20px;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.contact-seller h2 {
+    font-size: 2rem;
+    margin-bottom: 20px;
+    color: #333;
+}
+
+.contact-details p {
+    font-size: 1.1rem;
+    margin: 8px 0;
+    color: #333;
+}
+
+.contact-details a {
+    color: #007BFF;
+    text-decoration: none;
+}
+
+.contact-details a:hover {
+    text-decoration: underline;
+}
+
+@media (max-width: 768px) {
+    .product-details-container {
+        flex-direction: column;
+        align-items: center;
+    }
+    .product-image {
+        margin-right: 0;
+        margin-bottom: 20px;
+    }
+    .product-info {
+        text-align: center;
+    }
+    .contact-seller {
+        margin-top: 20px;
+    }
+}
+
+.cart-button {
+    width: 100%;
+    padding: 12px 20px;
+    font-size: 1rem;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    color: white;
+    background-color: #007BFF;
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    transition: background-color 0.3s ease;
+    margin-top: 20px;
+}
+
+.cart-button i {
+    font-size: 1.2rem;
+}
+
+.cart-green {
+    background-color: #28a745 !important;
+}
+
+.cart-container {
+    position: relative;
+    margin-left: auto;
+    /* margin-left: 85%; */
+    /* margin-left: 1600px; */
+    /* padding-right: 6%; */
+    cursor: pointer;
+}
+
+.cart-icon {
+    font-size: 18px;
+    color: white;
+    transition: transform 0.3s ease;
+}
+
+.cart-icon:hover {
+    color: #036ffc;
+    transform: scale(1.15);
+}
+
+.cart-count {
+    position: absolute;
+    top: -6px;
+    right: -10px;
+    background-color: #036ffc;
+    color: white;
+    font-size: 10px;
+    padding: 2px 6px;
+    border-radius: 50%;
+    font-weight: bold;
+}
+
+.settings-dropdown {
+    position: absolute;
+    top: 45px; /* move it up closer to the button */
+    right: 0;  /* align exactly to the right edge of the button container */
+    background-color: #1e1e1e;
+    border: 1px solid #444;
+    border-radius: 8px;
+    display: none;
+    flex-direction: column;
+    padding: 8px 0;
+    z-index: 999;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+    min-width: 150px; /* optional, ensures dropdown isn’t too small */
+    max-width: 220px; /* optional, prevents it from being too wide */
+    /* Optional: smooth up movement */
+    transform: translateY(-5px);
+}
+
+
+.settings-dropdown a {
+    color: white;
+    text-decoration: none;
+    padding: 10px 20px;
+    transition: background-color 0.3s ease;
+    font-size: 0.95rem;
+}
+
+.settings-dropdown a:hover {
+    background-color: #036ffc;
+    color: white;
+}
+
+.settings-dropdown a.logout {
+    color: red;
+    text-decoration: none;
+    padding: 10px 20px;
+    transition: background-color 0.3s ease;
+    font-size: 0.95rem;
+}
+
+.settings-dropdown a.logout:hover {
+    color: white;
+    background-color: red;
+}
+
+.edit-button {
+    width: 100%;
+    padding: 12px 20px;
+    font-size: 1rem;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    color: white;
+    background-color: #007BFF;
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    transition: background-color 0.3s ease;
+    margin-top: 20px;
+}
+
+.edit-button:hover {
+    background-color: #13549b;
+}

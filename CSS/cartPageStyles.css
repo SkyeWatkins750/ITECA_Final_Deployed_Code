@@ -1,0 +1,442 @@
+.page_header{
+    font-family: Segoe UI Historic, Segoe UI, Helvetica, Arial, sans-serif;
+    color: white;
+    background-color: #262422;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    border-bottom: 1px solid #484646;
+    height: 8%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    /* padding: 0 2%; */
+    padding-left: 1%;
+    padding-right: 2%;
+    z-index: 1000;
+}
+body{
+    margin-top: 4%;
+    font-family: 'Inter', sans-serif;
+    background-color: #f7f7f7;
+}
+#HeaderHeading{
+    margin-left: 0;
+}
+header{
+    display: flex;
+    align-items: center;
+    gap: 2vh;
+    width: 100%;
+    justify-content: space-between;
+}
+body{
+    background-color: whitesmoke;
+}
+.settingsButton {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-left: auto;
+    /* margin-left: 1%; */
+    padding-right: 3%; 
+}
+
+.buttonSettings {
+    background: none;
+    border: none;
+    padding: 0;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.settings-btn {
+    transition: transform 0.4s ease-in-out;
+}
+
+.settings-btn:hover {
+    transform: rotate(45deg);
+}
+.settings-btn:active {
+animation: rot 1s linear infinite;
+}
+@keyframes rot {
+from {
+    transform: rotate(-100deg);
+}
+to {
+    transform: rotate(180deg);
+}
+}
+
+.cart-heading {
+    font-size: 2.5rem;
+    margin-bottom: 30px;
+    color: #333;
+}
+
+.cart-item {
+    display: flex;
+    background-color: #fff;
+    border-radius: 10px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+    margin-bottom: 20px;
+    padding: 15px;
+    align-items: center;
+    position: relative;
+}
+
+.cart-item:hover{
+    transform: scale(1.03);
+}
+
+.cart-img {
+    width: 140px;
+    height: 140px;
+    object-fit: cover;
+    border-radius: 10px;
+    margin-right: 20px;
+}
+
+.cart-details {
+    flex: 1;
+}
+
+.cart-details h3 {
+    margin: 0 0 10px 0;
+    font-size: 1.5rem;
+    color: #222;
+}
+
+.cart-details p {
+    margin: 5px 0;
+    font-size: 1rem;
+    color: #555;
+}
+
+.cart-price {
+    font-size: 1.3rem;
+    font-weight: bold;
+    color: #007BFF;
+}
+
+.cart-summary {
+    background-color: #fff;
+    border-radius: 10px;
+    padding: 20px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+    font-size: 1.2rem;
+    text-align: right;
+    margin-top: 30px;
+}
+
+.cart-summary .total {
+    font-weight: bold;
+    font-size: 1.5rem;
+    margin-bottom: 15px;
+    display: block;
+    color: #222;
+}
+
+.cart-summary .checkout-btn {
+    background-color: #007BFF;
+    color: #fff;
+    border: none;
+    padding: 16px 35px;
+    font-size: 1.2rem;
+    border-radius: 10px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.cart-summary .checkout-btn:hover {
+    background-color: #0056b3;
+}
+
+.delete-icon {
+    color: #dc3545;
+    font-size: 1.5rem;
+    margin-left: 10px;
+    cursor: pointer;
+    transition: transform 0.2s ease, color 0.2s ease;
+}
+
+.delete-icon:hover {
+    transform: scale(1.2);
+    color: #a71d2a;
+}
+
+@media (max-width: 768px) {
+    .cart-item {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    .cart-img {
+        margin-bottom: 15px;
+        width: 100%;
+        height: auto;
+    }
+}
+.main-content {
+    margin-top: 10vh;
+    padding: 20px;
+    max-width: 1000px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.cart-form {
+    margin: 0;
+    padding: 0;
+}
+
+.cart-item:focus {
+    outline: none;
+}
+
+.cart-item:hover {
+    cursor: pointer;
+}
+
+.my-listings-button,
+.home-page-button,
+.my-cart-button {
+    background: none;
+    border: none;
+    color: white;
+    font-size: 0.95rem;
+    font-weight: 500;
+    padding: 0.4vh 0.8vh;
+    cursor: pointer;
+    text-decoration: none;
+    transition: color 0.3s ease, border-bottom 0.3s ease;
+    border-radius: 4px;
+}
+
+.my-listings-button:hover,
+.home-page-button:hover,
+.my-cart-button:hover {
+    color: #036ffc;
+}
+
+.my-listings-button:active,
+.home-page-button:active,
+.my-cart-button:active {
+    color: #036ffc;
+}
+
+.payment-heading {
+    font-size: 2.5rem;
+    margin-bottom: 30px;
+    color: #333;
+    text-align: center;
+}
+
+.payment-form {
+    background-color: white;
+    padding: 30px;
+    border-radius: 12px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+    max-width: 600px;
+    margin: auto;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.payment-form label {
+    font-size: 1rem;
+    color: #333;
+    margin-bottom: 6px;
+    font-weight: 500;
+}
+
+.payment-form input,
+.payment-form select {
+    padding: 14px 16px;
+    border-radius: 8px;
+    border: 1px solid #ccc;
+    font-size: 1rem;
+    width: 100%;
+    box-sizing: border-box;
+}
+
+.payment-form input:focus,
+.payment-form select:focus {
+    outline: none;
+    border-color: #036ffc;
+    box-shadow: 0 0 0 2px rgba(0, 123, 255, 0.2);
+}
+
+.row {
+    display: flex;
+    gap: 20px;
+}
+
+.column {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+}
+
+.submit-payment-btn {
+    background-color: #036ffc;
+    color: white;
+    padding: 16px;
+    font-size: 1.2rem;
+    border: none;
+    border-radius: 10px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    margin-top: 10px;
+}
+
+.submit-payment-btn:hover {
+    background-color: #0056b3;
+}
+
+@media (max-width: 768px) {
+    .row {
+        flex-direction: column;
+    }
+}
+
+.error-message {
+    color: #d9534f !important;
+    font-size: 0.9em;
+    margin-top: 4px;
+    display: block;
+}
+
+/* Chrome, Safari, Edge, Opera */
+input[type="number"]::-webkit-inner-spin-button,
+input[type="number"]::-webkit-outer-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+}
+
+/* Firefox */
+input[type="number"] {
+    -moz-appearance: textfield;
+}
+
+.form-section-title {
+    font-size: 1.4rem;
+    margin-top: 20px;
+    margin-bottom: 10px;
+    color: #222;
+    font-weight: 600;
+    border-bottom: 1px solid #ccc;
+    padding-bottom: 5px;
+}
+
+.order-completed-container {
+    margin-top: 15%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 70%;
+}
+
+.order-completed-card {
+    background-color: white;
+    max-width: 450px;
+    width: 90%;
+    padding: 40px 30px;
+    border-radius: 12px;
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.12);
+    text-align: center;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    color: #222;
+}
+
+.success-icon {
+    font-size: 4.5rem;
+    color: #28a745;
+    margin-bottom: 20px;
+}
+
+.order-completed-card h2 {
+    font-weight: 700;
+    font-size: 2rem;
+    margin-bottom: 12px;
+}
+
+.order-number-label {
+    font-size: 1.1rem;
+    margin-bottom: 6px;
+    color: #555;
+}
+
+.order-number {
+    font-size: 1.8rem;
+    font-weight: 700;
+    color: #036ffc;
+    margin-bottom: 30px;
+}
+
+.order-home-btn {
+    display: inline-flex;
+    align-items: center;
+    background-color: #036ffc;
+    color: white;
+    padding: 14px 32px;
+    font-size: 1.1rem;
+    border-radius: 10px;
+    text-decoration: none;
+    transition: background-color 0.3s ease;
+    font-weight: 600;
+    box-shadow: 0 4px 8px rgba(3, 111, 252, 0.3);
+}
+
+.order-home-btn:hover {
+    background-color: #0056b3;
+}
+
+.settings-dropdown {
+    position: absolute;
+    top: 45px; /* move it up closer to the button */
+    right: 0;  /* align exactly to the right edge of the button container */
+    background-color: #1e1e1e;
+    border: 1px solid #444;
+    border-radius: 8px;
+    display: none;
+    flex-direction: column;
+    padding: 8px 0;
+    z-index: 999;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+    min-width: 150px; /* optional, ensures dropdown isn’t too small */
+    max-width: 220px; /* optional, prevents it from being too wide */
+    /* Optional: smooth up movement */
+    transform: translateY(-5px);
+}
+
+
+.settings-dropdown a {
+    color: white;
+    text-decoration: none;
+    padding: 10px 20px;
+    transition: background-color 0.3s ease;
+    font-size: 0.95rem;
+}
+
+.settings-dropdown a:hover {
+    background-color: #036ffc;
+    color: white;
+}
+
+.settings-dropdown a.logout {
+    color: red;
+    text-decoration: none;
+    padding: 10px 20px;
+    transition: background-color 0.3s ease;
+    font-size: 0.95rem;
+}
+
+.settings-dropdown a.logout:hover {
+    color: white;
+    background-color: red;
+}
