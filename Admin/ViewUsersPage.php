@@ -20,7 +20,6 @@ if (session_status() === PHP_SESSION_NONE) {
         <header>
             <h1 id="HeaderHeading">MyTrader</h1>
 
-            <!-- <input id="searchBar" type="text" placeholder="Search..."> -->
             <a href="../MainPage/MainPage.php" class="home-page-button">
                 <i class="bi bi-house" style="margin-right: 8px;"></i>Home Page
             </a>
@@ -207,9 +206,8 @@ if (session_status() === PHP_SESSION_NONE) {
         document.querySelector(".buttonSettings").addEventListener("click", function (e) {
                 e.stopPropagation();
                 const dropdown = document.getElementById("settingsDropdown");
-                const button = e.currentTarget;  // The settings button clicked
+                const button = e.currentTarget;
 
-                // Toggle visibility
                 if (dropdown.style.display === "flex") {
                     dropdown.style.display = "none";
                     return;
@@ -217,26 +215,19 @@ if (session_status() === PHP_SESSION_NONE) {
 
                 dropdown.style.display = "flex";
 
-                // Reset styles first
                 dropdown.style.right = "";
                 dropdown.style.left = "";
 
-                // Get bounding rectangles
                 const dropdownRect = dropdown.getBoundingClientRect();
                 const buttonRect = button.getBoundingClientRect();
                 const viewportWidth = window.innerWidth;
 
-                // Calculate how much space is on the right of the button
                 const spaceOnRight = viewportWidth - buttonRect.right;
 
-                // If dropdown overflows right viewport, flip it to left of button
                 if (dropdownRect.right > viewportWidth && dropdownRect.width > spaceOnRight) {
-                    // Position dropdown so its right edge aligns with button's left edge
                     dropdown.style.left = "auto";
                     dropdown.style.right = (viewportWidth - buttonRect.left) + "px"; 
-                    // This positions dropdown relative to the viewport right edge to button's left
                 } else {
-                    // Normal position: dropdown right aligned to button right
                     dropdown.style.left = buttonRect.left + "px";
                     dropdown.style.right = "auto";
                 }
