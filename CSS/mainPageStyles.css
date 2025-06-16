@@ -84,27 +84,16 @@ to {
     transform: rotate(180deg);
 }
 }
-/* .Sidebar{
-    height: 92%;
-    width: 20%;
-    background-color: #262422;
-    position: fixed;
-    top: 8%;
-    left: 0;
-    padding-top: 2vh;
-    padding-left: 2vh;
-    z-index: 0;
-} */
  .Sidebar {
     height: 92%;
     width: 250px;
     background-color: #262422;
     position: fixed;
     top: 8%;
-    left: -250px; /* Start off-screen */
+    left: -250px;
     padding-top: 2vh;
     padding-left: 2vh;
-    z-index: 999; /* Higher than other elements */
+    z-index: 999;
     transition: left 0.3s ease-in-out;
 }
 .burger {
@@ -112,14 +101,9 @@ to {
     cursor: pointer;
     color: white;
 }
-
-
-/* When sidebar is visible */
 .Sidebar.show {
     left: 0;
 }
-
-
 .card-grid {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
@@ -161,9 +145,7 @@ to {
     margin: 0;
 }
 .main-content {
-    /* margin-left: 20%; */
     padding: 30px;
-    /* width: 80%; */
     width: 100%;
     box-sizing: border-box;
 }
@@ -304,8 +286,8 @@ to {
 
 .settings-dropdown {
     position: absolute;
-    top: 45px; /* move it up closer to the button */
-    right: 0;  /* align exactly to the right edge of the button container */
+    top: 45px;
+    right: 0;
     background-color: #1e1e1e;
     border: 1px solid #444;
     border-radius: 8px;
@@ -314,9 +296,8 @@ to {
     padding: 8px 0;
     z-index: 999;
     box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
-    min-width: 150px; /* optional, ensures dropdown isn’t too small */
-    max-width: 220px; /* optional, prevents it from being too wide */
-    /* Optional: smooth up movement */
+    min-width: 150px;
+    max-width: 220px;
     transform: translateY(-5px);
 }
 
