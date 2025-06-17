@@ -98,7 +98,7 @@ if (session_status() === PHP_SESSION_NONE) {
             confirm_passwordError.textContent = "";
             provinceError.textContent = "";
             cityError.textContent = "";
-            streetError.textContent = "";
+            streetAddressError.textContent = "";
             postalError.textContent = "";
 
             if (name.value.trim() === "") {
@@ -129,7 +129,7 @@ if (session_status() === PHP_SESSION_NONE) {
             if (postal.value.trim() === "") {
                 postalError.textContent = "Postal code is required.";
                 isValid = false;
-            } else if (postalCode.value.trim().length < 4) {
+            } else if (postal.value.trim().length < 4) {
                 postalError.textContent = "Postal code is not complete.";
                 isValid = false;
             }else if (postal.value.trim().length > 4) {

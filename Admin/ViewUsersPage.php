@@ -166,7 +166,7 @@ if (session_status() === PHP_SESSION_NONE) {
                 success: function(response) {
                     row.find('td:eq(1)').text(response.fullName);
                     row.find('td:eq(2)').text(response.email);
-                    row.find('td:eq(3)').text(response.userPassword);
+                    row.find('td:eq(3)').text('');
                     row.find('td:eq(4)').text(response.accessLevel);
                     row.find('td:eq(5)').text(response.Province);
                     row.find('td:eq(6)').text(response.City);

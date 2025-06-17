@@ -44,26 +44,100 @@ function deleteUser(){
     }
 }
 
-function updateUser(){
+// function updateUser(){
+//     try {
+//         $userId = $_POST['id'];
+//         require_once "dbh.inc.php";
+//         $fullName = $_POST['fullName'];
+//         $email = $_POST['email'];
+//         $password = $_POST['userPassword'];
+//         $hashedPassword = password_hash($password, PASSWORD_DEFAULT);
+//         $accessLevel = $_POST['accessLevel'];
+//         $province = $_POST['Province'];
+//         $city = $_POST['City'];
+//         $address = $_POST['StreetAddress'];
+//         $postalCode = $_POST['PostalCode'];
+
+//         $query = "UPDATE users SET fullName = :fullName, email = :email, userPassword = :_password, Province = :province, accessLevel = :accessLevel, City = :city, StreetAddress = :_address, PostalCode = :postalCode WHERE id = :userID;";
+
+//         $stmt = $pdo->prepare($query);
+//         $stmt->bindParam(":fullName", $fullName);
+//         $stmt->bindParam(":email", $email);
+//         $stmt->bindParam(":_password", $hashedPassword);
+//         $stmt->bindParam(":province", $province);
+//         $stmt->bindParam(":accessLevel", $accessLevel);
+//         $stmt->bindParam(":city", $city);
+//         $stmt->bindParam(":_address", $address);
+//         $stmt->bindParam(":postalCode", $postalCode);
+//         $stmt->bindParam(":userID", $userId);
+
+//         $stmt->execute();
+
+//         $query = "SELECT * FROM users WHERE id = :userID;";
+
+//         $stmt = $pdo->prepare($query);
+
+//         $stmt->bindParam(":userID", $userId);
+
+//         $stmt->execute();
+
+//         $updatedUser = $stmt->fetch(PDO::FETCH_ASSOC);
+
+//         header('Content-Type: application/json');
+//         echo json_encode($updatedUser);
+
+//         $pdo = null;
+//         $stmt = null;
+
+//         die();
+//     }catch (PDOException $e) {
+//         die("Query failed: " . $e->getMessage());
+//     }
+// }
+
+function updateUser() {
     try {
         $userId = $_POST['id'];
         require_once "dbh.inc.php";
+
         $fullName = $_POST['fullName'];
         $email = $_POST['email'];
-        $password = $_POST['userPassword'];
-        $hashedPassword = password_hash($password, PASSWORD_DEFAULT);
         $accessLevel = $_POST['accessLevel'];
         $province = $_POST['Province'];
         $city = $_POST['City'];
         $address = $_POST['StreetAddress'];
         $postalCode = $_POST['PostalCode'];
+        $password = $_POST['userPassword'] ?? '';
 
-        $query = "UPDATE users SET fullName = :fullName, email = :email, userPassword = :_password, Province = :province, accessLevel = :accessLevel, City = :city, StreetAddress = :_address, PostalCode = :postalCode WHERE id = :userID;";
+        if (!empty($password)) {
+            $hashedPassword = password_hash($password, PASSWORD_DEFAULT);
+
+            $query = "UPDATE users 
+                      SET fullName = :fullName, 
+                          email = :email, 
+                          userPassword = :_password,
+                          Province = :province, 
+                          accessLevel = :accessLevel, 
+                          City = :city, 
+                          StreetAddress = :_address, 
+                          PostalCode = :postalCode 
+                      WHERE id = :userID;";
+        } else {
+            $query = "UPDATE users 
+                      SET fullName = :fullName, 
+                          email = :email, 
+                          Province = :province, 
+                          accessLevel = :accessLevel, 
+                          City = :city, 
+                          StreetAddress = :_address, 
+                          PostalCode = :postalCode 
+                      WHERE id = :userID;";
+        }
 
         $stmt = $pdo->prepare($query);
+
         $stmt->bindParam(":fullName", $fullName);
         $stmt->bindParam(":email", $email);
-        $stmt->bindParam(":_password", $hashedPassword);
         $stmt->bindParam(":province", $province);
         $stmt->bindParam(":accessLevel", $accessLevel);
         $stmt->bindParam(":city", $city);
@@ -71,16 +145,16 @@ function updateUser(){
         $stmt->bindParam(":postalCode", $postalCode);
         $stmt->bindParam(":userID", $userId);
 
+        if (!empty($password)) {
+            $stmt->bindParam(":_password", $hashedPassword);
+        }
+
         $stmt->execute();
 
         $query = "SELECT * FROM users WHERE id = :userID;";
-
         $stmt = $pdo->prepare($query);
-
         $stmt->bindParam(":userID", $userId);
-
         $stmt->execute();
-
         $updatedUser = $stmt->fetch(PDO::FETCH_ASSOC);
 
         header('Content-Type: application/json');
@@ -88,9 +162,8 @@ function updateUser(){
 
         $pdo = null;
         $stmt = null;
-
         die();
-    }catch (PDOException $e) {
+    } catch (PDOException $e) {
         die("Query failed: " . $e->getMessage());
     }
 }

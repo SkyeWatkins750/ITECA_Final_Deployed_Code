@@ -131,7 +131,7 @@ function getItemsForCards() {
             $params = array_merge($params, $selectedCategories);
         }
 
-        $baseQuery .= " ORDER BY i.dateListed DESC LIMIT ? OFFSET ?";
+        $baseQuery .= " ORDER BY i.dateListed DESC, id DESC LIMIT ? OFFSET ?";
         $params[] = $limit;
         $params[] = $offset;
 

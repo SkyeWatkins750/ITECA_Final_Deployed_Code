@@ -51,7 +51,7 @@ try {
                 echo "<td>".$row['id']."</td>";
                 echo "<td contenteditable='true'>".$row['fullName']."</td>";
                 echo "<td contenteditable='true'>".$row['email']."</td>";
-                echo "<td contenteditable='true'>".$row['userPassword']."</td>";
+                echo "<td contenteditable='true'>".''."</td>";
                 echo "<td contenteditable='true'>".$row['accessLevel']."</td>";
                 echo "<td contenteditable='true'>".$row['Province']."</td>";
                 echo "<td contenteditable='true'>".$row['City']."</td>";

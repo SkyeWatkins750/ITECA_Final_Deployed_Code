@@ -68,7 +68,7 @@ if (session_status() === PHP_SESSION_NONE) {
                 <span class="error-message" id="passwordError"></span>
 
                 <!-- Confirm Password -->
-                <label for="passwordConfirm">Password</label>
+                <label for="passwordConfirm">Confirm Password</label>
                 <input type="password" name="passwordConfirm" id="passwordConfirm" placeholder="Confirm new password">
                 <span class="error-message" id="passwordConfirmError"></span>
 
